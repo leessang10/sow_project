@@ -6,6 +6,29 @@ import {Project, projects} from "@/constants/projects";
 import {useState} from "react";
 import ProjectModal from "./ProjectModal";
 
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+            type: "spring",
+            damping: 25,
+            stiffness: 100
+        }
+    }
+};
+
 export default function Projects() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -17,14 +40,21 @@ export default function Projects() {
                     description="Architecture + Interior + Branding"
                 />
                 <section className="py-20 px-4">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                    <motion.div 
+                        className="max-w-7xl mx-auto"
+                        variants={container}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: "-100px" }}
+                    >
+                        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                             {projects.map((project) => (
                                 <motion.div
                                     key={project.id}
                                     layoutId={`container-${project.id}`}
                                     className="group cursor-pointer"
                                     onClick={() => setSelectedProject(project)}
+                                    variants={item}
                                 >
                                     <motion.div
                                         layoutId={`card-${project.id}`}
@@ -87,8 +117,8 @@ export default function Projects() {
                                     </motion.div>
                                 </motion.div>
                             ))}
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </section>
             </main>
             
