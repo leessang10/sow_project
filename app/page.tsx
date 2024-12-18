@@ -3,6 +3,7 @@
 import {motion} from "framer-motion";
 
 export default function Home() {
+    const duration = 4.0
     return (
         <main className="min-h-screen bg-white dark:bg-dark-bg transition-colors">
             {/* Hero Section */}
@@ -12,13 +13,13 @@ export default function Home() {
                     className="text-center"
                     initial={{opacity: 0, y: 20}}
                     animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.8}}
+                    transition={{duration: 2.0}}
                 >
                     <motion.h1
                         className="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
-                        transition={{delay: 0.2, duration: 0.6}}
+                        transition={{delay: 0.2, duration}}
                     >
                         Atelier Sow
                     </motion.h1>
@@ -26,7 +27,7 @@ export default function Home() {
                         className="text-xl text-gray-600 dark:text-gray-300 mb-2"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
-                        transition={{delay: 0.4, duration: 0.6}}
+                        transition={{delay: 0.4, duration}}
                     >
                         공간에 가치를 심다
                     </motion.p>
@@ -34,7 +35,7 @@ export default function Home() {
                         className="text-lg text-gray-500 dark:text-gray-400"
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
-                        transition={{delay: 0.6, duration: 0.6}}
+                        transition={{delay: 0.6, duration}}
                     >
                         김정민 · 이혜은
                     </motion.p>
