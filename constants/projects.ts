@@ -1,4 +1,13 @@
 // https://youtu.be/6u80k6d5sCA?si=0Qb58CtsR5U5vwGR
+export interface Project {
+    id: string | number;
+    title: string;
+    category: string;
+    description: string | undefined;
+    thumbnail: string;
+    videoId: string;
+}
+
 export const projects = [
     {
         id: 1,
@@ -32,5 +41,4 @@ export const projects = [
         videoId: "v2maNVn1Kcs",
         thumbnail: "https://i.ytimg.com/vi/v2maNVn1Kcs/maxresdefault.jpg"
     },
-
 ];

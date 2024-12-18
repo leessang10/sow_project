@@ -20,7 +20,16 @@ const config: Config = {
           card: '#1E1E1E',
           hover: '#2D2D2D'
         }
-      }
+      },
+      height: {
+        'half-screen': '50vh',
+      },
+      maxHeight: {
+        'half-screen': '50vh',
+      },
+      maxWidth: {
+        'half-screen': '50vw',
+      },
     },
   },
   plugins: [],
