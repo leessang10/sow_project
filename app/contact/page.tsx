@@ -159,7 +159,7 @@ export default function Contact() {
                         </div>
 
                         <p className="text-gray-600 dark:text-gray-400">
-                            서울특별시 서초구 서초대로 44길
+                            서울특별시 서초구 서초대로 78길 44, 서초나산스위트
                         </p>
                     </div>
                 </div>
