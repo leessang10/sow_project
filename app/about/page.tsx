@@ -21,7 +21,7 @@ export default function About() {
                         >
                             <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">아틀리에 소우</h2>
                             <p className="text-gray-600 dark:text-gray-400 mb-4">
-                                아틀리에 소우는 Sound Of Wisdom의 약자로,
+                                아틀리에 소우는 Sound Of Wise의 약자로,
                                 지혜로운 소리를 의미합니다. 우리는 건축이 단순한
                                 구조물이 아닌 삶의 지혜를 담는 그릇이 되어야
                                 한다고 믿습니다.
