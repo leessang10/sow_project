@@ -7,7 +7,7 @@ export const steps = [
             "현장조사 및 설계 지침 마련",
             "발주를 위한 기본 설계 업무 수행"
         ],
-        color: "bg-orange-50 dark:bg-orange-900/20"
+        color: "bg-gray-50 dark:bg-gray-900/20"
     },
     {
         number: "02",
@@ -17,7 +17,7 @@ export const steps = [
             "디자인 개념 개발 및 연관 분야 기본 시스템 검토",
             "계획안을 건축주에게 제안 및 승인"
         ],
-        color: "bg-blue-50 dark:bg-blue-900/20"
+        color: "bg-gray-50 dark:bg-gray-900/20"
     },
     {
         number: "03",
@@ -27,7 +27,7 @@ export const steps = [
             "구조, 설비, 자재 등의 규모 및 용량 결정",
             "구체화된 설계 도서를 작성하여 건축주 승인"
         ],
-        color: "bg-green-50 dark:bg-green-900/20"
+        color: "bg-gray-50 dark:bg-gray-900/20"
     },
     {
         number: "04",
@@ -36,7 +36,7 @@ export const steps = [
             "입찰 및 공사에 필요한 설계도서 작성",
             "공사의 범위, 치수, 위치, 재질, 색상 등을 결정"
         ],
-        color: "bg-purple-50 dark:bg-purple-900/20"
+        color: "bg-gray-50 dark:bg-gray-900/20"
     },
     {
         number: "05",
@@ -45,7 +45,7 @@ export const steps = [
             "공사 시공 과정에서 설계 의도 반영",
             "현장 여건 변화 및 자재, 장비 변경 검토 및 보완"
         ],
-        color: "bg-pink-50 dark:bg-pink-900/20"
+        color: "bg-gray-50 dark:bg-gray-100/20"
     },
     {
         number: "06",
@@ -54,6 +54,6 @@ export const steps = [
             "시공 계획 수립 및 상세 도면 작성",
             "공사 실행 및 관리"
         ],
-        color: "bg-yellow-50 dark:bg-yellow-900/20"
+        color: "bg-gray-50 dark:bg-gray-900/20"
     }
 ];

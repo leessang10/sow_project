@@ -47,7 +47,7 @@ export default function Process() {
                             <motion.div
                                 key={step.number}
                                 variants={itemVariants}
-                                className={`${step.color} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow relative dark:shadow-gray-900/30`}
+                                className="bg-gray-50 dark:bg-dark-card p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow relative dark:shadow-gray-900/30"
                             >
                                 <motion.div
                                     initial={{scale: 0}}
