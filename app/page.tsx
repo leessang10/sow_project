@@ -1,8 +1,6 @@
 'use client';
 
 import {motion} from "framer-motion";
-import {projects} from "@/constants/projects";
-import Image from 'next/image';
 
 const containerVariants = {
     hidden: {opacity: 0},
@@ -105,79 +103,6 @@ export default function Home() {
             </section>
 
             {/* Projects Preview Section */}
-            <section className="py-20 px-4 bg-gray-50 dark:bg-dark-card">
-                <div className="max-w-7xl mx-auto">
-                    <motion.h2
-                        className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white"
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.6}}
-                    >
-                        최근 프로젝트
-                    </motion.h2>
-                    <motion.div
-                        className="max-w-7xl mx-auto"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                            {projects.map((project) => (
-                                <motion.div
-                                    key={project.id}
-                                    variants={itemVariants}
-                                    className="group"
-                                >
-                                    <a
-                                        href={`https://www.youtube.com/watch?v=${project.videoId}`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="block bg-white dark:bg-dark-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all"
-                                    >
-                                        <div
-                                            className="relative aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                                            <Image
-                                                src={project.thumbnail}
-                                                alt={project.title}
-                                                fill
-                                                className="object-cover transition-transform group-hover:scale-105"
-                                            />
-                                            <div
-                                                className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"/>
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <motion.div
-                                                    className="w-16 h-16 rounded-full bg-white/80 dark:bg-black/80 flex items-center justify-center"
-                                                    whileHover={{scale: 1.1}}
-                                                >
-                                                    <svg
-                                                        className="w-8 h-8 text-gray-900 dark:text-white"
-                                                        fill="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <path d="M8 5v14l11-7z"/>
-                                                    </svg>
-                                                </motion.div>
-                                            </div>
-                                        </div>
-                                        <div className="p-4">
-                                            <motion.h3
-                                                className="text-xl font-bold mb-2 text-gray-900 dark:text-white"
-                                                whileHover={{x: 10}}
-                                            >
-                                                {project.title}
-                                            </motion.h3>
-                                            <p className="text-gray-600 dark:text-gray-300 mb-2">{project.category}</p>
-                                            {project.description && (
-                                                <p className="text-gray-500 dark:text-gray-400">{project.description}</p>
-                                            )}
-                                        </div>
-                                    </a>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
         </main>
     );
 }
