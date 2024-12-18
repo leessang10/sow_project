@@ -2,6 +2,7 @@
 
 import PageHeader from "../components/PageHeader";
 import {motion} from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
     return (
@@ -11,7 +12,7 @@ export default function About() {
                 description="창의적인 공간 설계로 새로운 가치를 만들어갑니다"
             />
 
-            <section className="py-20 px-4">
+            <section className="py-90 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div
@@ -33,12 +34,18 @@ export default function About() {
                             </p>
                         </motion.div>
                         <motion.div
-                            className="relative h-[400px] bg-gray-100 dark:bg-gray-800"
+                            className="relative h-[400px] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden"
                             initial={{opacity: 0, x: 20}}
                             animate={{opacity: 1, x: 0}}
                             transition={{duration: 0.6, delay: 0.2}}
                         >
-                            {/* 회사 대표 이미지 */}
+                            <Image
+                                src="/images/누나매형.jpeg"
+                                alt="아틀리에 소우 대표"
+                                fill
+                                className="object-cover"
+                                style={{objectPosition: '50% 38%'}}
+                            />
                         </motion.div>
                     </div>
                 </div>
@@ -56,7 +63,16 @@ export default function About() {
                         >
                             <div
                                 className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-                                {/* 프로필 이미지 */}
+                                <Image
+                                    src="/images/매형.jpeg"
+                                    alt="김정민 대표"
+                                    fill
+                                    className="object-cover"
+                                    style={{
+                                        transform: "scale(2.5)", // 확대
+                                        objectPosition: "50% 45%", // 중심 유지
+                                    }}
+                                />
                             </div>
                             <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">김정민</h3>
                             <p className="text-gray-600 dark:text-gray-400">공동 대표 / 건축가</p>
@@ -69,7 +85,12 @@ export default function About() {
                         >
                             <div
                                 className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-                                {/* 프로필 이미지 */}
+                                <Image
+                                    src="/images/누나.jpeg"
+                                    alt="이혜은 대표"
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
                             <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">이혜은</h3>
                             <p className="text-gray-600 dark:text-gray-400">공동 대표 / 건축가</p>
