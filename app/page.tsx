@@ -79,10 +79,11 @@ export default function Home() {
                             animate={{opacity: 1, x: 0}}
                             transition={{duration: 0.6, delay: 0.2}}
                         >
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">지혜로운 공간 설계</h3>
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">공간의 본질을 탐구하는 디자인</h3>
                             <p className="text-gray-600 dark:text-gray-400">
-                                아틀리에 소우는 공간에 대한 깊은 이해와 창의적인 해석을 통해
-                                사용자의 일상에 영감을 불어넣는 건축을 추구합니다.
+                                내·외부의 경계를 넘어서는 건축을 추구합니다. 
+                                단순한 외관 디자인을 넘어 공간과 관련된 
+                                모든 디자인 요소를 섬세하게 다룹니다.
                             </p>
                         </motion.div>
                         <motion.div
@@ -91,10 +92,11 @@ export default function Home() {
                             animate={{opacity: 1, x: 0}}
                             transition={{duration: 0.6, delay: 0.4}}
                         >
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">지속가능한 디자인</h3>
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">정성이 깃든 건축</h3>
                             <p className="text-gray-600 dark:text-gray-400">
-                                환경과 조화를 이루는 지속가능한 건축을 통해
-                                더 나은 미래를 설계합니다.
+                                SOW(심다)라는 이름처럼, 각 프로젝트에 
+                                정성과 철학을 심어 본질적 의미의 건축을 
+                                실현합니다.
                             </p>
                         </motion.div>
                     </div>

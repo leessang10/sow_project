@@ -22,15 +22,21 @@ export default function About() {
                         >
                             <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">아틀리에 소우</h2>
                             <p className="text-gray-600 dark:text-gray-400 mb-4">
-                                아틀리에 소우는 Sound Of Wise의 약자로,
-                                지혜로운 소리를 의미합니다. 우리는 건축이 단순한
-                                구조물이 아닌 삶의 지혜를 담는 그릇이 되어야
-                                한다고 믿습니다.
+                                아틀리에 소우(Atelier SOW)는 '심다'라는 본연의 뜻과 
+                                'Sound Of Wise'를 결합한 의미를 담고 있습니다. 
+                                우리는 건축이 단순한 구조물이 아닌, 삶의 지혜를 담는 
+                                그릇이 되어야 한다고 믿습니다.
+                            </p>
+                            <p className="text-gray-600 dark:text-gray-400 mb-4">
+                                국민대학교 테크노디자인 건축대학원을 졸업한 
+                                김정민, 이혜은 부부는 내·외부의 경계가 모호한 
+                                건축의 본질에 접근하며, 단순한 외관 디자인을 넘어 
+                                공간과 관련된 모든 디자인 요소를 중요하게 다룹니다.
                             </p>
                             <p className="text-gray-600 dark:text-gray-400">
-                                김정민, 이혜은 부부를 주축으로 성장하고 있는
-                                아틀리에 소우는 각 프로젝트에 혼을 담아
-                                클라이언트의 꿈을 실현시키고 있습니다.
+                                우리는 정성이 가득한 공간을 만들어내고, 
+                                본질적 의미의 'Architecture'에 한걸음 더 
+                                다가가고자 합니다.
                             </p>
                         </motion.div>
                         <motion.div
