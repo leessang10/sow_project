@@ -22,8 +22,8 @@ export default function About() {
                         >
                             <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">아틀리에 소우</h2>
                             <p className="text-gray-600 dark:text-gray-400 mb-4">
-                                아틀리에 소우(Atelier SOW)는 '심다'라는 본연의 뜻과 
-                                'Sound Of Wise'를 결합한 의미를 담고 있습니다. 
+                                아틀리에 소우(Atelier SOW)는 &apos;심다&apos;라는 본연의 뜻과 
+                                &apos;Sound Of Wise&apos;를 결합한 의미를 담고 있습니다. 
                                 우리는 건축이 단순한 구조물이 아닌, 삶의 지혜를 담는 
                                 그릇이 되어야 한다고 믿습니다.
                             </p>
@@ -35,7 +35,7 @@ export default function About() {
                             </p>
                             <p className="text-gray-600 dark:text-gray-400">
                                 우리는 정성이 가득한 공간을 만들어내고, 
-                                본질적 의미의 'Architecture'에 한걸음 더 
+                                본질적 의미의 &apos;Architecture&apos;에 한걸음 더 
                                 다가가고자 합니다.
                             </p>
                         </motion.div>

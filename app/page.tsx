@@ -2,6 +2,7 @@
 
 import {motion} from "framer-motion";
 import {projects} from "@/constants/projects";
+import Image from 'next/image';
 
 const containerVariants = {
     hidden: {opacity: 0},
@@ -70,7 +71,7 @@ export default function Home() {
                         animate={{opacity: 1, y: 0}}
                         transition={{duration: 0.6}}
                     >
-                        아틀리에 소우는 지혜로운 공간을 만듭니다
+                        아틀리에 소우는 ��혜로운 공간을 만듭니다
                     </motion.h2>
                     <div className="grid md:grid-cols-2 gap-12">
                         <motion.div
@@ -135,10 +136,11 @@ export default function Home() {
                                     >
                                         <div
                                             className="relative aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                                            <img
+                                            <Image
                                                 src={project.thumbnail}
                                                 alt={project.title}
-                                                className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+                                                fill
+                                                className="object-cover transition-transform group-hover:scale-105"
                                             />
                                             <div
                                                 className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"/>
