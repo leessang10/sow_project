@@ -1,7 +1,7 @@
 'use client';
 
 import {AnimatePresence, motion} from "framer-motion";
-import {Project} from "@/constants/projects";
+import {Project} from "@/app/projects/projects";
 
 interface ProjectModalProps {
     project: Project | null;

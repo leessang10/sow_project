@@ -3,6 +3,7 @@
 import PageHeader from "../components/PageHeader";
 import {motion} from "framer-motion";
 import Image from "next/image";
+import ArchitectProfile from "./ArchitectProfile";
 
 export default function About() {
     return (
@@ -61,46 +62,16 @@ export default function About() {
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">대표 건축가</h2>
                     <div className="grid md:grid-cols-2 gap-12">
-                        <motion.div
-                            className="text-center"
-                            initial={{opacity: 0, y: 20}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{duration: 0.6}}
-                        >
-                            <div
-                                className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-                                <Image
-                                    src="/images/매형.jpeg"
-                                    alt="김정민 대표"
-                                    fill
-                                    className="object-cover"
-                                    style={{
-                                        transform: "scale(2.5)", // 확대
-                                        objectPosition: "50% 45%", // 중심 유지
-                                    }}
-                                />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">김정민</h3>
-                            <p className="text-gray-600 dark:text-gray-400">공동 대표 / 건축가</p>
-                        </motion.div>
-                        <motion.div
-                            className="text-center"
-                            initial={{opacity: 0, y: 20}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{duration: 0.6, delay: 0.2}}
-                        >
-                            <div
-                                className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
-                                <Image
-                                    src="/images/누나.jpeg"
-                                    alt="이혜은 대표"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">이혜은</h3>
-                            <p className="text-gray-600 dark:text-gray-400">공동 대표 / 건축가</p>
-                        </motion.div>
+                        <ArchitectProfile 
+                            name="김정민"
+                            image="/images/매형.jpeg"
+                            role="공동 대표 / 건축가"
+                        />
+                        <ArchitectProfile 
+                            name="이혜은"
+                            image="/images/누나.jpeg"
+                            role="공동 대표 / 건축가"
+                        />
                     </div>
                 </div>
             </section>
