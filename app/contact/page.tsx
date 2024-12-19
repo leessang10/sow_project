@@ -2,7 +2,7 @@
 
 import PageHeader from "../components/PageHeader";
 import ContactForm from "./ContactForm";
-import KakaoMap from "./KakaoMap";
+import GoogleMap from "./GoogleMap";
 
 export default function Contact() {
     return (
@@ -27,7 +27,7 @@ export default function Contact() {
                         </h2>
 
                         <div className="mb-4">
-                            <KakaoMap />
+                            <GoogleMap />
                         </div>
 
                         <p className="text-gray-600 dark:text-gray-400">
