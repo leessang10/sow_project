@@ -45,7 +45,7 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
                     {project.detail && (
                         <div className="prose dark:prose-invert max-w-none">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                                <motion.div 
+                                <motion.div
                                     className="bg-gray-50 dark:bg-dark-card p-8 rounded-lg"
                                     initial={{opacity: 0, y: 20}}
                                     animate={{opacity: 1, y: 0}}
@@ -63,7 +63,7 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
                                         <dd>{project.detail.location}</dd>
                                     </dl>
                                 </motion.div>
-                                <motion.div 
+                                <motion.div
                                     className="bg-gray-50 dark:bg-dark-card p-8 rounded-lg"
                                     initial={{opacity: 0, y: 20}}
                                     animate={{opacity: 1, y: 0}}
@@ -83,7 +83,7 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
                                 </motion.div>
                             </div>
 
-                            <motion.div 
+                            <motion.div
                                 className="bg-gray-50 dark:bg-dark-card p-8 rounded-lg mb-12"
                                 initial={{opacity: 0, y: 20}}
                                 animate={{opacity: 1, y: 0}}
@@ -102,29 +102,9 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
                         </div>
                     )}
 
-                    {project.images && (
-                        <motion.div 
-                            className="grid gap-8"
-                            initial={{opacity: 0, y: 20}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{duration: 0.5, delay: 0.5}}
-                        >
-                            {project.images.map((image, index) => (
-                                <div key={index} className="relative aspect-video w-full bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
-                                    <Image
-                                        src={image}
-                                        alt={`${project.title} 이미지 ${index + 1}`}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                            ))}
-                        </motion.div>
-                    )}
-
                     {project.video && (
-                        <motion.div 
-                            className="relative aspect-video w-full mt-8 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden"
+                        <motion.div
+                            className="relative aspect-video w-full mt-8 mb-8 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{duration: 0.5, delay: 0.6}}
@@ -137,6 +117,29 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
                             />
                         </motion.div>
                     )}
+
+                    {project.images && (
+                        <motion.div
+                            className="grid gap-8"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5, delay: 0.5}}
+                        >
+                            {project.images.map((image, index) => (
+                                <div key={index}
+                                     className="relative aspect-video w-full bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+                                    <Image
+                                        src={image}
+                                        alt={`${project.title} 이미지 ${index + 1}`}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            ))}
+                        </motion.div>
+                    )}
+
+
                 </div>
             </section>
         </main>
