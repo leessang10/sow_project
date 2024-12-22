@@ -29,7 +29,7 @@ export default function Home() {
                         animate={{opacity: 1}}
                         transition={{delay: 0.4, duration}}
                     >
-                        공간에 가치를 심다
+                        Sound Of Wise
                     </motion.p>
                     <motion.p
                         className="text-lg text-gray-500 dark:text-gray-400"
