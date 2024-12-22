@@ -38,6 +38,7 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
                             src={project.mainImage}
                             alt={project.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
                             className="object-cover"
                         />
                     </motion.div>
@@ -132,6 +133,7 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
                                         src={image}
                                         alt={`${project.title} 이미지 ${index + 1}`}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
                                         className="object-cover"
                                     />
                                 </div>
