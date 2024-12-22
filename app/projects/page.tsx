@@ -2,7 +2,7 @@
 
 import PageHeader from "../components/PageHeader";
 import {motion} from "framer-motion";
-import {Project, projects} from "@/app/projects/projects";
+import {projects} from "@/app/projects/projects";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
 
@@ -34,7 +34,7 @@ export default function Projects() {
                     <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                         {projects.map((project) => (
                             <Link key={project.id} href={`/projects/${project.id}`}>
-                                <ProjectCard project={project} />
+                                <ProjectCard project={project}/>
                             </Link>
                         ))}
                     </motion.div>
