@@ -29,14 +29,14 @@ export default function ProcessStep({ step, index }: ProcessStepProps) {
                 initial={{scale: 0}}
                 animate={{scale: 1}}
                 transition={{delay: index * 0.2, duration: 0.5}}
-                className="w-16 h-16 rounded-full bg-white dark:bg-dark-card shadow-md flex items-center justify-center mb-6 mx-auto"
+                className="w-16 h-16 rounded-full bg-white dark:bg-dark-card shadow-md flex items-center justify-center mb-4 mx-auto"
             >
                 <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                     {step.number}
                 </span>
             </motion.div>
             <motion.h3
-                className="text-xl font-bold mb-4 text-center text-gray-900 dark:text-white"
+                className="text-xl font-bold mb-8 text-center text-gray-900 dark:text-white"
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{delay: index * 0.3}}
