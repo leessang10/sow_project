@@ -15,13 +15,13 @@ export default function About() {
 
             <section className="py-90 px-4">
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="grid md:grid-cols-2 gap-12 items-center ">
                         <motion.div
                             initial={{opacity: 0, x: -20}}
                             animate={{opacity: 1, x: 0}}
                             transition={{duration: 0.6}}
                         >
-                            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">아틀리에 소우</h2>
+                            <h2 className="text-3xl font-bold mt-4 mb-6 text-gray-900 dark:text-white">아틀리에 소우</h2>
                             <p className="text-gray-600 dark:text-gray-400 mb-4">
                                 아틀리에 소우(Atelier SOW)는 &apos;심다&apos;라는 본연의 뜻과 
                                 &apos;Sound Of Wise&apos;를 결합한 의미를 담고 있습니다. 
