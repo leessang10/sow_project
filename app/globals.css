@@ -6,6 +6,14 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+    --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", 
+        "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕",
+        "Noto Sans KR", "Roboto", system-ui, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    /* 기존 스타일... */
 }
 
 /* 다른 전역 스타일들... */
