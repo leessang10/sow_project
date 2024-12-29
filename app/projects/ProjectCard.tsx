@@ -1,6 +1,6 @@
 import {Project} from "@/app/projects/projects";
-import Image from "next/image";
 import {motion} from "framer-motion";
+import Image from "next/image";
 
 interface ProjectCardProps {
     project: Project;
@@ -21,6 +21,7 @@ export default function ProjectCard({project}: ProjectCardProps) {
                 src={project.mainImage}
                 alt={project.title}
                 fill
+                style={{objectFit: 'cover', objectPosition: 'center'}}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
