@@ -1,5 +1,4 @@
-// app/api/contact/route.ts
-
+import dayjs from "dayjs";
 import {NextResponse} from 'next/server';
 import nodemailer from 'nodemailer';
 
@@ -23,12 +22,15 @@ export async function POST(req: Request) {
 
     const {name, email, phone, message} = formData;
 
+    // 현재 날짜와 시간을 "YYYY년 MM월 DD일 hh:mm:ss" 형식으로 포맷
+    const formattedDate = dayjs().format('YYYY년 MM월 DD일 HH:mm:ss');
+
     // 이메일 내용 설정
     const mailOptions = {
         from: process.env.SMTP_USER,  // 보내는 이메일 주소
-        to: process.env.RECIPIENT_EMAIL,  // 받는 사람 이메일 (본인 이메일로 설정)
+        to: process.env.SMTP_USER,    // 받는 사람 이메일 (본인 이메일로 설정)
         subject: '문의사항',
-        text: `이름: ${name}\n이메일: ${email}\n전화번호: ${phone}\n\n${message}`,
+        text: `이름: ${name}\n이메일: ${email}\n전화번호: ${phone}\n발송 일자: ${formattedDate}\n\n문의내용: ${message}\n`,
     };
 
     try {
