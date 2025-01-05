@@ -7,10 +7,10 @@ import DesktopMenuItem from './navigation/DesktopMenuItem';
 import MobileMenu from './navigation/MobileMenu';
 
 const menuItems = [
-    {href: "/about", text: "회사소개"},
-    {href: "/projects", text: "프로젝트"},
-    {href: "/process", text: "진행과정"},
-    {href: "/contact", text: "문의하기"}
+    {href: "/about", text: "About"},
+    {href: "/projects", text: "Projects"},
+    {href: "/process", text: "Process"},
+    {href: "/contact", text: "Contact"}
 ];
 
 export default function Navigation() {
