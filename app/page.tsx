@@ -1,16 +1,17 @@
 'use client';
 
+import CustomNextButton from "@/app/components/slider/CustomNextButton";
+import CustomPrevButton from "@/app/components/slider/CustomPrevButton";
 import {projects} from "@/app/projects/projects";
 import Image from "next/image";
-import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
+import React, {useRef} from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {useRef} from "react";
 
 
 export default function Home() {
-    const sliderRef = useRef<Slider>(null);
+    const sliderRef = useRef<Slider | null>(null);
 
     const settings = {
         dots: false,
@@ -21,8 +22,6 @@ export default function Home() {
         autoplay: true,
         autoplaySpeed: 5000,
         arrows: false,
-        prevArrow: <CustomPrevArrow/>,
-        nextArrow: <CustomNextArrow/>,
     };
 
     return (
@@ -38,7 +37,8 @@ export default function Home() {
                                 style={{objectFit: 'cover'}}
                                 sizes="100vw"
                             />
-                            <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-40">
+                            <div
+                                className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-40">
                                 <h2 className="text-3xl font-bold text-white mb-2">{project.title}</h2>
                                 <p className="text-lg text-gray-200">{project.description}</p>
                             </div>
@@ -86,58 +86,5 @@ export default function Home() {
                 </div>
             </section>
         </main>
-    );
-}
-
-
-function CustomPrevArrow(props: any) {
-    const {className, style, onClick} = props;
-    return (
-        <div
-            className={`${className} absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-gray-700 dark:text-gray-300`}
-            style={{...style, display: "block"}}
-            onClick={onClick}
-        >
-            <FaChevronLeft size={24}/>
-        </div>
-    );
-}
-
-function CustomNextArrow(props: any) {
-    const {className, style, onClick} = props;
-    return (
-        <div
-            className={`${className} absolute right-4 top-1/2 transform -translate-y-1/2 z-20 text-gray-700 dark:text-gray-300`}
-            style={{...style, display: "block"}}
-            onClick={onClick}
-        >
-            <FaChevronRight size={24}/>
-        </div>
-    );
-}
-
-function CustomPrevButton({sliderRef}: { sliderRef: any }) {
-    return (
-        <button
-            className="p-2 bg-gray-100 bg-opacity-20 hover:bg-opacity-70 text-gray-700 dark:text-gray-300 rounded-r-md"
-            onClick={() => {
-                sliderRef.current?.slickPrev();
-            }}
-        >
-            <FaChevronLeft size={24}/>
-        </button>
-    );
-}
-
-function CustomNextButton({sliderRef}: { sliderRef: any }) {
-    return (
-        <button
-            className="p-2 bg-gray-100 bg-opacity-20 hover:bg-opacity-70 text-gray-700 dark:text-gray-300 rounded-l-md"
-            onClick={() => {
-                sliderRef.current?.slickNext();
-            }}
-        >
-            <FaChevronRight size={24}/>
-        </button>
     );
 }
