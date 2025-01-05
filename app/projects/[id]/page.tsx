@@ -1,6 +1,5 @@
 'use client';
 
-import PageHeader from "@/app/components/PageHeader";
 import ProjectDetails from "@/app/projects/[id]/ProjectDetails";
 import ProjectImages from "@/app/projects/[id]/ProjectImages";
 import ProjectMainImage from "@/app/projects/[id]/ProjectMainImage";
@@ -23,11 +22,6 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
 
     return (
         <main className="min-h-screen bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors">
-            {/* <PageHeader
-                title={project.title}
-                description={project.description}
-            /> */}
- 
             <section className="py-2 px-2">
                 <div className="max-w-10xl mx-auto mt-16">
                     <ProjectMainImage project={project}/>

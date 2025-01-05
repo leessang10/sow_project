@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import {AnimatePresence, motion} from 'framer-motion';
 import MobileMenuItem from './MobileMenuItem';
 
 interface MobileMenuProps {
@@ -7,7 +7,7 @@ interface MobileMenuProps {
     menuItems: Array<{ href: string; text: string; }>;
 }
 
-export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuProps) {
+export default function MobileMenu({isOpen, onClose, menuItems}: MobileMenuProps) {
     const menuVariants = {
         closed: {
             opacity: 0,
@@ -78,13 +78,12 @@ export default function MobileMenu({ isOpen, onClose, menuItems }: MobileMenuPro
                     </motion.button>
 
                     <div className="flex flex-col items-center justify-center h-full gap-8">
-                        {menuItems.map((item, i) => (
+                        {menuItems.map((item) => (
                             <MobileMenuItem
                                 key={item.href}
                                 href={item.href}
                                 text={item.text}
-                                index={i}
-                                onClick={onClose}
+                                onClose={onClose}
                             />
                         ))}
                     </div>
