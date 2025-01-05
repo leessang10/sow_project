@@ -25,7 +25,7 @@ interface ProjectDetailProps {
 export default function ProjectDetails({project}: ProjectDetailProps) {
     return (
         <motion.div
-            className="bg-gray-50 dark:bg-dark-card p-8 rounded-lg mb-12"
+            className="bg-gray-50 dark:bg-dark-card p-8 my-8"
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.5, delay: 0.4}}

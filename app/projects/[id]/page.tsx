@@ -23,13 +23,13 @@ export default function ProjectDetail({params}: ProjectDetailProps) {
 
     return (
         <main className="min-h-screen bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors">
-            <PageHeader
+            {/* <PageHeader
                 title={project.title}
                 description={project.description}
-            />
-
-            <section className="py-20 px-4">
-                <div className="max-w-7xl mx-auto">
+            /> */}
+ 
+            <section className="py-2 px-2">
+                <div className="max-w-10xl mx-auto mt-16">
                     <ProjectMainImage project={project}/>
 
                     {project.detail && <ProjectDetails project={project}/>}
