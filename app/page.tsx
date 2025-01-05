@@ -38,6 +38,10 @@ export default function Home() {
                                 style={{objectFit: 'cover'}}
                                 sizes="100vw"
                             />
+                            <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black bg-opacity-40">
+                                <h2 className="text-3xl font-bold text-white mb-2">{project.title}</h2>
+                                <p className="text-lg text-gray-200">{project.description}</p>
+                            </div>
                         </div>
                     ))}
                 </Slider>
