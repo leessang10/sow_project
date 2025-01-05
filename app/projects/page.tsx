@@ -23,15 +23,15 @@ export default function Projects() {
                 title="프로젝트"
                 description="Architecture + Interior + Branding"
             />
-            <section className="py-20 px-4">
+            <section className="py-2 px-2">
                 <motion.div
-                    className="max-w-7xl mx-auto"
+                    className="max-w-10xl mx-auto"
                     variants={container}
                     initial="hidden"
                     whileInView="show"
                     viewport={{once: true, margin: "-100px"}}
                 >
-                    <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                    <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                         {projects.map((project) => (
                             <Link key={project.id} href={`/projects/${project.id}`}>
                                 <ProjectCard project={project}/>
