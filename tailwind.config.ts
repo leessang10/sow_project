@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type {Config} from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -29,6 +29,9 @@ const config: Config = {
       },
       maxWidth: {
         'half-screen': '50vw',
+      },
+      fontFamily: {
+        sans: ['Pretendard', 'Arial', 'sans-serif'], // Pretendard를 기본 sans로 설정
       },
     },
   },
