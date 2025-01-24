@@ -1,16 +1,21 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
 import "./globals.css";
-import Navigation from "./components/Navigation";
+import localFont from "next/font/local";
 import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
 import ThemeProvider from "./components/ThemeProvider";
-
-const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
     title: "Atelier Sow | Sound Of Wise",
     description: "아틀리에 소우(Atelier SOW)",
 };
+
+const pretendard = localFont({
+    src: "../public/fonts/PretendardVariable.woff2",
+    display: "swap",
+    weight: "45 920",
+    variable: "--font-pretendard",
+});
 
 export default function RootLayout({
                                        children,
@@ -19,7 +24,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ko" suppressHydrationWarning>
-        <body className={`${inter.className} transition-colors`}>
+        <body className={`${pretendard.className} transition-colors`}>
         <ThemeProvider>
             <Navigation/>
             {children}
