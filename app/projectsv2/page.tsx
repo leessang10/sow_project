@@ -2,6 +2,9 @@ import PageHeader from "../../components/PageHeader";
 import { getProjects } from "@/lib/notion/notion";
 import ProjectGrid from "./ProjectGrid";
 
+// 페이지 동적 설정
+export const revalidate = 10; // 10초마다 재검증
+
 export default async function ProjectsV2() {
     const projects = await getProjects();
 
