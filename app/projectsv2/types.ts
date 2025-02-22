@@ -6,3 +6,10 @@ export interface Project {
     createdDate?: string;
     published?: boolean;
 }
+
+export interface ProjectDetail extends Project {
+    content: {
+        type: string;
+        text: string;
+    }[];
+}

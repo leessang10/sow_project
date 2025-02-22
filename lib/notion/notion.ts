@@ -28,9 +28,9 @@ export async function getProject(id: string) {
   const blocksResponse = await notion.blocks.children.list({ block_id: id });
 
   const properties = parseProject(pageResponse);
+
   const content = blocksResponse.results
-    .map(parseBlock)
-    .filter((block): block is NonNullable<typeof block> => block !== null);
+    .map(parseBlock);
 
   return {
     ...properties,
