@@ -18,7 +18,7 @@ export default function ProjectContent({ content }: { content: BlockContent[] })
                 if (block?.type === 'image') {
                     return (
                         <div key={index} className="max-w-[100vw] relative">
-                            <div className="relative aspect-video w-full">
+                            <div className="relative aspect-video w-full mb-2">
                                 <Image 
                                     src={block?.url || ''}
                                     alt="Project image"
