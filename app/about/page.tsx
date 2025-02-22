@@ -1,6 +1,6 @@
 'use client';
 
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 import {motion} from "framer-motion";
 import Image from "next/image";
 import ArchitectProfile from "./ArchitectProfile";

@@ -1,6 +1,6 @@
 'use client';
 
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../../components/PageHeader";
 import {motion} from "framer-motion";
 import {steps} from "@/app/process/steps";
 import ProcessStep from "./ProcessStep";

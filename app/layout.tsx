@@ -1,9 +1,9 @@
 import type {Metadata} from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import Footer from "./components/Footer";
-import Navigation from "./components/Navigation";
-import ThemeProvider from "./components/ThemeProvider";
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
+import ThemeProvider from "../components/ThemeProvider";
 
 export const metadata: Metadata = {
     title: "Atelier Sow | Sound Of Wise",

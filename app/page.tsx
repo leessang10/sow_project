@@ -1,7 +1,7 @@
 'use client';
 
-import CustomNextButton from "@/app/components/slider/CustomNextButton";
-import CustomPrevButton from "@/app/components/slider/CustomPrevButton";
+import CustomNextButton from "@/components/slider/CustomNextButton";
+import CustomPrevButton from "@/components/slider/CustomPrevButton";
 import {projects} from "@/app/projects/projects";
 import Image from "next/image";
 import React, {useRef} from "react";
