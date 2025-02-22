@@ -42,9 +42,3 @@ export async function getNews(id: string) {
   const response = await notion.pages.retrieve({ page_id: id });
   return parseNews(response);
 }
-
-// const projects = await getProjects();
-// console.log(projects);
-const projectId = '1a251261-9f97-8074-8b8b-ceb9d2d3d233'
-const project = await getProject(projectId);
-console.log(project);

@@ -91,7 +91,7 @@ export function parseProject(page: any) {
     id: page.id,
     title: parseProperty(properties.Title),
     subtitle: parseProperty(properties.Subtitle),
-    mainImage: parseProperty(properties.mainImage)?.[0],
+    mainImage: parseProperty(properties['Main Image'])?.[0],
     createdDate: parseProperty(properties["Created Date"]),
     published: parseProperty(properties.Published),
   };
