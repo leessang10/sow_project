@@ -15,7 +15,13 @@ export async function getProjects() {
       checkbox: {
         equals: true
       }
-    }
+    },
+    sorts: [
+      {
+        property: 'Order',
+        direction: 'ascending'
+      }
+    ]
   });
   return response.results.map(parseProject);
 }
