@@ -4,8 +4,7 @@ import { PROJECT_DATABASE_ID, NEWS_DATABASE_ID } from './const';
 
 // Notion 클라이언트 초기화 
 const notion = new Client({
-  // auth: process.env.NOTION_API_KEY,
-  auth: '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',
+  auth: process.env.NOTION_API_KEY,
 });
 
 export async function getProjects() {
