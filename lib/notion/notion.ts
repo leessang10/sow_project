@@ -11,6 +11,12 @@ const notion = new Client({
 export async function getProjects() {
   const response = await notion.databases.query({
     database_id: PROJECT_DATABASE_ID,
+    filter: {
+      property: 'Published',
+      checkbox: {
+        equals: true
+      }
+    }
   });
   return response.results.map(parseProject);
 }
@@ -18,6 +24,12 @@ export async function getProjects() {
 export async function getNewses() {
   const response = await notion.databases.query({
     database_id: NEWS_DATABASE_ID,
+    filter: {
+      property: 'Published',
+      checkbox: {
+        equals: true
+      }
+    },
   });
   return response.results.map(parseNews);
 }
@@ -25,13 +37,26 @@ export async function getNewses() {
 export async function getProject(id: string) {
   // 순차적으로 처리
   const pageResponse = await notion.pages.retrieve({ page_id: id });
-  const blocksResponse = await notion.blocks.children.list({ block_id: id });
-
   const properties = parseProject(pageResponse);
 
-  const content = blocksResponse.results
-    .map(parseBlock);
-  // console.log(content);  
+  // 모든 블록 가져오기
+  let allBlocks: any[] = [];
+  let hasMore = true;
+  let startCursor: string | undefined = undefined;
+
+  while (hasMore) {
+    const blocksResponse = await notion.blocks.children.list({ 
+      block_id: id,
+      start_cursor: startCursor,
+    });
+    
+    allBlocks = [...allBlocks, ...blocksResponse.results];
+    hasMore = blocksResponse.has_more;
+    startCursor = blocksResponse.next_cursor || undefined;
+  }
+
+  const content = allBlocks.map(parseBlock);
+  
   return {
     ...properties,
     content
