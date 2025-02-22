@@ -31,7 +31,7 @@ export async function getProject(id: string) {
 
   const content = blocksResponse.results
     .map(parseBlock);
-
+  // console.log(content);  
   return {
     ...properties,
     content

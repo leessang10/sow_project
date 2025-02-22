@@ -9,6 +9,7 @@ export interface BlockContent {
     checked?: boolean;
     icon?: string;
     url?: string;
+    caption?: string;
 }
 
 export default function ProjectContent({ content }: { content: BlockContent[] }) {
@@ -77,6 +78,21 @@ export default function ProjectContent({ content }: { content: BlockContent[] })
                                         <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-6 my-8 italic">
                                             {block?.text}
                                         </blockquote>
+                                    );
+                                case 'link_preview':
+                                case 'bookmark':
+                                    return (
+                                        <a 
+                                            href={block?.url} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="inline-flex items-center gap-1 hover:underline"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                            <span>{block?.caption || block?.url}</span>
+                                        </a>
                                     );
                                 default:
                                     return null;

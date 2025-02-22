@@ -21,11 +21,26 @@ export function parseProperty(property: any) {
 // 블록 내용 파싱 함수
 export function parseBlock(block: any) {
   switch (block.type) {
-    case 'paragraph':
+    case 'paragraph': {
+      const texts = block.paragraph.rich_text;
+      
+      // 링크가 있는지 확인
+      const hasLink = texts.some((text: any) => text.text.link);
+      if (hasLink) {
+        const text = texts[0];
+        return {
+          type: 'link_preview',
+          url: text.text.link.url,
+          caption: text.plain_text || '' // 링크 텍스트를 캡션으로 사용
+        };
+      }
+      
+      // 일반 텍스트인 경우
       return {
         type: 'paragraph',
-        text: block.paragraph.rich_text.map((text: any) => text.plain_text).join('')
+        text: texts.map((text: any) => text.plain_text).join('')
       };
+    }
     case 'heading_1':
       return {
         type: 'heading_1',
@@ -77,6 +92,17 @@ export function parseBlock(block: any) {
       return {
         type: 'image',
         url: block.image.file?.url || block.image.external?.url
+      };
+    case 'link_preview':
+      return {
+        type: 'link_preview',
+        url: block.link_preview.url
+      };
+    case 'bookmark':
+      return {
+        type: 'bookmark',
+        url: block.bookmark.url,
+        caption: block.bookmark.caption?.map((text: any) => text.plain_text).join('') || ''
       };
     default:
       return null;
