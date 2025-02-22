@@ -5,7 +5,10 @@ import Image from "next/image";
 import {notFound} from "next/navigation";
 import { BlockContent } from "./ProjectContent";
 
-export default async function ProjectDetail({ params }: { params: { id: string } }) {
+interface ProjectDetailProps {
+    params: Promise<{ id: string }>;
+}
+export default async function ProjectDetail({ params }: ProjectDetailProps) {
     const { id } = await params;
     const project = await getProject(id);
 
