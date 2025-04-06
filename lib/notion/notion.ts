@@ -1,6 +1,6 @@
 import { NotionBlock } from '@/app/press/types';
 import { Client } from '@notionhq/client';
-import { PRESS_DATABASE_ID, PROJECT_DATABASE_ID } from './const';
+import { CONTACT_DATABASE_ID, PRESS_DATABASE_ID, PROJECT_DATABASE_ID } from './const';
 import { parseBlock, parsePress, parseProject } from './notion-utils';
 
 // Notion 클라이언트 초기화
@@ -127,5 +127,51 @@ export async function getProject(id: string) {
   } catch (error) {
     console.error('Error fetching project:', error);
     return null;
+  }
+}
+
+export async function createContact(data: { name: string; email: string; phone?: string; message: string }) {
+  try {
+    const response = await notion.pages.create({
+      parent: {
+        database_id: CONTACT_DATABASE_ID,
+      },
+      properties: {
+        Name: {
+          title: [
+            {
+              text: {
+                content: data.name,
+              },
+            },
+          ],
+        },
+        Email: {
+          email: data.email,
+        },
+        Phone: {
+          phone_number: data.phone || '',
+        },
+        Message: {
+          rich_text: [
+            {
+              text: {
+                content: data.message,
+              },
+            },
+          ],
+        },
+        Status: {
+          select: {
+            name: 'New',
+          },
+        },
+      },
+    });
+
+    return response;
+  } catch (error) {
+    console.error('Error creating contact:', error);
+    throw error;
   }
 }
