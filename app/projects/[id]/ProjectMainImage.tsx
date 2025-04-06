@@ -1,29 +1,28 @@
 'use client';
 
-import {Project} from "@/app/projects/projects";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
 
 interface ProjectMainImageProps {
-    project: Project;
+    src: string;
+    alt: string;
 }
 
-export default function ProjectMainImage({project}: ProjectMainImageProps) {
+export default function ProjectMainImage({ src, alt }: ProjectMainImageProps) {
     return (
         <motion.div
-            className="relative aspect-video w-full mb-2 bg-gray-100 dark:bg-gray-800 overflow-hidden"
-            initial={{opacity: 0, y: 20}}
-            animate={{opacity: 1, y: 0}}
-            transition={{duration: 0.5}}
+            className="relative aspect-video w-full mb-8 bg-gray-100 dark:bg-gray-800 overflow-hidden rounded-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
         >
             <Image
-                src={project.mainImage}
-                alt={project.title}
+                src={src}
+                alt={alt}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
-                style={{objectFit: 'cover', objectPosition: 'center'}}
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
         </motion.div>
     );
-}
+} 
