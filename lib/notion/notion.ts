@@ -1,74 +1,131 @@
+import { NotionBlock } from '@/app/press/types';
 import { Client } from '@notionhq/client';
-import { parseProject, parseNews, parseBlock } from './notion-utils';
-import { PROJECT_DATABASE_ID, NEWS_DATABASE_ID } from './const';
+import { PRESS_DATABASE_ID, PROJECT_DATABASE_ID } from './const';
+import { parseBlock, parsePress, parseProject } from './notion-utils';
 
-// Notion 클라이언트 초기화 
+// Notion 클라이언트 초기화
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
+// 오류 처리 함수
+const handleNotionError = (error: any) => {
+  console.error('Notion API 오류:', error);
+
+  // API 토큰이 유효하지 않은 경우
+  if (error.code === 'unauthorized' || error.message?.includes('API token is invalid')) {
+    console.error('Notion API 토큰이 유효하지 않습니다. 환경 변수를 확인하세요.');
+    return [];
+  }
+
+  // 기타 오류
+  return [];
+};
+
 export async function getProjects() {
-  const response = await notion.databases.query({
-    database_id: PROJECT_DATABASE_ID,
-    filter: {
-      property: 'Published',
-      checkbox: {
-        equals: true
-      }
-    },
-    sorts: [
-      {
-        property: 'Order',
-        direction: 'ascending'
-      }
-    ]
-  });
-  return response.results.map(parseProject);
+  try {
+    const response = await notion.databases.query({
+      database_id: PROJECT_DATABASE_ID,
+      filter: {
+        property: 'Published',
+        checkbox: {
+          equals: true,
+        },
+      },
+      sorts: [
+        {
+          property: 'Order',
+          direction: 'ascending',
+        },
+      ],
+    });
+    return response.results.map(parseProject);
+  } catch (error) {
+    return handleNotionError(error);
+  }
 }
 
-export async function getNewses() {
-  const response = await notion.databases.query({
-    database_id: NEWS_DATABASE_ID,
-    filter: {
-      property: 'Published',
-      checkbox: {
-        equals: true
-      }
-    },
-  });
-  return response.results.map(parseNews);
+export async function getPressItems() {
+  try {
+    const response = await notion.databases.query({
+      database_id: PRESS_DATABASE_ID,
+      filter: {
+        property: 'Published',
+        checkbox: {
+          equals: true,
+        },
+      },
+    });
+    return response.results.map(parsePress);
+  } catch (error) {
+    return handleNotionError(error);
+  }
+}
+
+export async function getPressItem(id: string) {
+  try {
+    // 순차적으로 처리
+    const pageResponse = await notion.pages.retrieve({ page_id: id });
+    const properties = parsePress(pageResponse);
+
+    // 모든 블록 가져오기
+    let allBlocks: any[] = [];
+    let hasMore = true;
+    let startCursor: string | undefined = undefined;
+
+    while (hasMore) {
+      const blocksResponse = await notion.blocks.children.list({
+        block_id: id,
+        start_cursor: startCursor,
+      });
+
+      allBlocks = [...allBlocks, ...blocksResponse.results];
+      hasMore = blocksResponse.has_more;
+      startCursor = blocksResponse.next_cursor || undefined;
+    }
+
+    const content = allBlocks.map(parseBlock).filter((block): block is NotionBlock => block !== undefined);
+
+    return {
+      ...properties,
+      content,
+    };
+  } catch (error) {
+    console.error('Error fetching press item:', error);
+    return null;
+  }
 }
 
 export async function getProject(id: string) {
-  // 순차적으로 처리
-  const pageResponse = await notion.pages.retrieve({ page_id: id });
-  const properties = parseProject(pageResponse);
+  try {
+    // 순차적으로 처리
+    const pageResponse = await notion.pages.retrieve({ page_id: id });
+    const properties = parseProject(pageResponse);
 
-  // 모든 블록 가져오기
-  let allBlocks: any[] = [];
-  let hasMore = true;
-  let startCursor: string | undefined = undefined;
+    // 모든 블록 가져오기
+    let allBlocks: any[] = [];
+    let hasMore = true;
+    let startCursor: string | undefined = undefined;
 
-  while (hasMore) {
-    const blocksResponse = await notion.blocks.children.list({ 
-      block_id: id,
-      start_cursor: startCursor,
-    });
-    
-    allBlocks = [...allBlocks, ...blocksResponse.results];
-    hasMore = blocksResponse.has_more;
-    startCursor = blocksResponse.next_cursor || undefined;
+    while (hasMore) {
+      const blocksResponse = await notion.blocks.children.list({
+        block_id: id,
+        start_cursor: startCursor,
+      });
+
+      allBlocks = [...allBlocks, ...blocksResponse.results];
+      hasMore = blocksResponse.has_more;
+      startCursor = blocksResponse.next_cursor || undefined;
+    }
+
+    const content = allBlocks.map(parseBlock).filter((block): block is NotionBlock => block !== undefined);
+
+    return {
+      ...properties,
+      content,
+    };
+  } catch (error) {
+    console.error('Error fetching project:', error);
+    return null;
   }
-
-  const content = allBlocks.map(parseBlock);
-  
-  return {
-    ...properties,
-    content
-  };
-}
-
-export async function getNews(id: string) {
-  const response = await notion.pages.retrieve({ page_id: id });
-  return parseNews(response);
 }
